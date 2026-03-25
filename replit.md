@@ -91,6 +91,26 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
 
+### `artifacts/duck-app` (`@workspace/duck-app`)
+
+Full WhatsApp clone called **Duck App**. Frontend-only React + Vite app backed entirely by Firebase.
+
+- **Auth**: Firebase Auth (email/password). Login + signup on one page.
+- **Real-time chat**: Firestore with `onSnapshot` listeners. Messages stored at `/rooms/{roomId}/messages/`.
+- **Features**: Typing indicator, online/offline status, seen/delivered ticks, emoji picker, dark/light mode toggle.
+- **Components**: `src/components/` — Login, Header, Sidebar, ChatBubble, ChatInput, ChatWindow, EmojiPicker.
+- **Firebase config**: `src/firebase.ts` — reads `VITE_FIREBASE_*` env vars.
+- **Hooks**: `useAuth`, `useTheme`, `useChat`.
+- **Styling**: TailwindCSS with WhatsApp-inspired teal (#075E54) theme, light + dark modes.
+- **Animations**: Framer Motion for page transitions, bubble entrances, typing dots.
+- **Packages**: `firebase`, `framer-motion`, `react-icons`, `emoji-picker-react`, `date-fns`.
+
+**Required secrets** (set as `VITE_FIREBASE_*` env vars):
+`VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_AUTH_DOMAIN`, `VITE_FIREBASE_PROJECT_ID`,
+`VITE_FIREBASE_STORAGE_BUCKET`, `VITE_FIREBASE_MESSAGING_SENDER_ID`, `VITE_FIREBASE_APP_ID`
+
+**Firestore rules** needed: `allow read, write: if request.auth != null;`
+
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.

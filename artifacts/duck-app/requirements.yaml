@@ -1,0 +1,18 @@
+packages:
+  "firebase": "Firebase SDK for auth and firestore real-time database"
+  "framer-motion": "For smooth chat bubble and page transition animations"
+  "react-icons": "For UI icons and WhatsApp-style design details"
+  "emoji-picker-react": "For the chat input emoji picker"
+  "date-fns": "For formatting chat timestamps and last-seen statuses"
+  "clsx": "For constructing Tailwind class names"
+  "tailwind-merge": "For merging Tailwind classes"
+
+images:
+  - path: "artifacts/duck-app/public/images/duck-logo.png"
+    description: "A cute, minimal, polished vector logo of a duck's head, WhatsApp green theme"
+    aspect_ratio: "1:1"
+
+notes:
+  - "App relies exclusively on Firebase as a backend-as-a-service."
+  - "Requires VITE_FIREBASE_API_KEY and other VITE_FIREBASE_* env variables."
+  - "No custom Express API routes are needed; all data mutations hit Firestore directly."
